@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace FlatRent
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageAdmin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageAdmin : Page
     {
-        public MainWindow()
+        public PageAdmin()
         {
             InitializeComponent();
-            frame_login.NavigationService.Navigate(new PageLogin());
         }
     }
 }

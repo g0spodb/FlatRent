@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlatRent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1400" Background="DeepSkyBlue">
     <Grid>
-        <Frame x:Name="frame_aparts" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="frame_login" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

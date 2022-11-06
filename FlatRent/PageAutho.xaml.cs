@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +21,36 @@ namespace FlatRent
     /// </summary>
     public partial class PageAutho : Page
     {
+        public static ObservableCollection<User> users { get; set; }
         public PageAutho()
         {
             InitializeComponent();
         }
 
-        private void arendator_Click(object sender, RoutedEventArgs e)
+        private void AuthoClick(object sender, RoutedEventArgs e)
         {
-
+            users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
+            var z = users.Where(a => a.Login == tb_Login.Text && a.Password == pb_Password.Password).FirstOrDefault();
+            if (z != null)
+            {
+                MessageBox.Show("Добро пожаловать, " + z.FullName);
+                if (z.Id_Role == 2)
+                {
+                    NavigationService.Navigate(new PageApartments(z));
+                }
+                else
+                {
+                    NavigationService.Navigate(new PageAdmin());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден");
+            }
         }
-
-        private void hozain_Click(object sender, RoutedEventArgs e)
+        private void BackClick(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
     }
 }

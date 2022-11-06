@@ -1,0 +1,31 @@
+﻿<Page x:Class="FlatRent.PageLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FlatRent"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageLogin">
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="img\logo.png" Grid.Row="1" Grid.Column="1"/>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+                <Button x:Name="autho" Grid.Row="1" Grid.Column="2" Height="50" Click="autho_Click" FontSize="15" Background="#FFC72929" Margin="10" BorderBrush="#FFC72929">Войти</Button>
+                <Button x:Name="reg" Grid.Row="1" Grid.Column="2" Height="50" Click="reg_Click" FontSize="15" Background="#FFC72929" Margin="10" BorderBrush="#FFC72929">Зарегестрироваться</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

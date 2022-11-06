@@ -16,14 +16,23 @@ using System.Windows.Shapes;
 namespace FlatRent
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageLogin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageLogin : Page
     {
-        public MainWindow()
+        public PageLogin()
         {
             InitializeComponent();
-            frame_login.NavigationService.Navigate(new PageLogin());
+        }
+
+        private void autho_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAutho());
+        }
+
+        private void reg_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageReg());
         }
     }
 }

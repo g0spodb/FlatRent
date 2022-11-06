@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -20,9 +21,29 @@ namespace FlatRent
     /// </summary>
     public partial class PageApartments : Page
     {
-        public PageApartments()
+        User User { get; set; }
+        public static ObservableCollection<Apartment> apartments { get; set; }
+        public PageApartments(User user)
         {
             InitializeComponent();
+            User = user;
+            var currentRecipes = FlatRentEntities.GetContext().Apartment.ToList();
+            LViewAparts.ItemsSource = currentRecipes;
+        }
+
+        private void NewClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAddApartment(User));
+        }
+
+        private void AccountClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAccount(User));
+        }
+
+        private void LViewAparts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

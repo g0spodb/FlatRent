@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ddcaf03ac3db4e9ba68151d300b1440b" Name="Diagram1" ZoomLevel="53">
+        <EntityTypeShape EntityType="FlatRentModel.Apartment" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="FlatRentModel.Metro" Width="1.5" PointX="7.875" PointY="3.625" />
+        <EntityTypeShape EntityType="FlatRentModel.Role" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="FlatRentModel.Room" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="FlatRentModel.Sex" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="FlatRentModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="FlatRentModel.User" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="FlatRentModel.FK_Apartment_Metro" />
+        <AssociationConnector Association="FlatRentModel.FK_Apartment_Owner" />
+        <AssociationConnector Association="FlatRentModel.FK_Apartment_Room" />
+        <AssociationConnector Association="FlatRentModel.FK_User_Role" />
+        <AssociationConnector Association="FlatRentModel.FK_Owner_Sex" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
