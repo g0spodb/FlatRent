@@ -60,14 +60,14 @@ namespace FlatRent
             a.Id_User = User.Id;
             bd_connection.connection.Apartment.Add(a);
             bd_connection.connection.SaveChanges();
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PageApartments(User));
         }
 
         private void PhotoClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog()
             {
-                Filter = "*.jpg|*.jpg|*.png|*.png"
+                Filter = "*.jpg|*.jpg|*.png|*.png*|.jpeg|*.jpeg"
             };
             if (openFile.ShowDialog().GetValueOrDefault())
             {
@@ -78,7 +78,7 @@ namespace FlatRent
         }
         private void BackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new PageApartments(User));
         }
     }
 }

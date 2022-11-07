@@ -14,6 +14,12 @@ namespace FlatRent
     
     public partial class Apartment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Apartment()
+        {
+            this.AddPhoto = new HashSet<AddPhoto>();
+        }
+    
         public int Id { get; set; }
         public int Id_Room { get; set; }
         public int Id_Metro { get; set; }
@@ -23,6 +29,8 @@ namespace FlatRent
         public int Id_User { get; set; }
         public byte[] Photo { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AddPhoto> AddPhoto { get; set; }
         public virtual Metro Metro { get; set; }
         public virtual User User { get; set; }
         public virtual Room Room { get; set; }

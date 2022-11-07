@@ -33,6 +33,7 @@ namespace FlatRent
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AddPhoto> AddPhoto { get; set; }
         public virtual DbSet<Apartment> Apartment { get; set; }
         public virtual DbSet<Metro> Metro { get; set; }
         public virtual DbSet<Role> Role { get; set; }

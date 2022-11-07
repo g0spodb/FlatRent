@@ -35,20 +35,18 @@ namespace FlatRent
         {
             tbFullName.Visibility = Visibility.Hidden;
             tbPhone.Visibility = Visibility.Hidden;
-            tbPassport.Visibility = Visibility.Hidden;
             tbLogin.Visibility = Visibility.Hidden;
             tbPassword.Visibility = Visibility.Hidden;
             Save.Visibility = Visibility.Hidden;
 
             FullName.Visibility = Visibility.Visible;
             Phone.Visibility = Visibility.Visible;
-            Passport.Visibility = Visibility.Visible;
             Login.Visibility = Visibility.Visible;
             Password.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Visible;
+            Show.Visibility = Visibility.Visible;
             User.FullName = tbFullName.Text;
             User.Phone = tbPhone.Text;
-            User.Passport = tbPassport.Text;
             User.Login = tbLogin.Text;
             User.Password = tbPassword.Text;
             bd_connection.connection.SaveChanges();
@@ -59,7 +57,6 @@ namespace FlatRent
         {
             tbFullName.Visibility = Visibility.Visible;
             tbPhone.Visibility = Visibility.Visible;
-            tbPassport.Visibility = Visibility.Visible;
             tbLogin.Visibility = Visibility.Visible;
             tbPassword.Visibility = Visibility.Visible;
             Save.Visibility = Visibility.Visible;
@@ -67,10 +64,10 @@ namespace FlatRent
 
             FullName.Visibility = Visibility.Hidden;
             Phone.Visibility = Visibility.Hidden;
-            Passport.Visibility = Visibility.Hidden;
             Login.Visibility = Visibility.Hidden;
             Password.Visibility = Visibility.Hidden;
             Edit.Visibility = Visibility.Hidden;
+            Show.Visibility = Visibility.Hidden;
         }
 
         private void PhotoClick(object sender, RoutedEventArgs e)

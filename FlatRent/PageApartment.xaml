@@ -1,0 +1,57 @@
+﻿<Page x:Class="FlatRent.PageApartment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FlatRent"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageApartment">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100px"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100px"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        <Image Source="img\logo.png"/>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Margin="5" Text="Адрес:" FontSize="22" FontFamily="Candara Light"/>
+            <TextBlock x:Name="tb_Adress" Margin="5" FontSize="30" FontFamily="Candara"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBlock Margin="5" FontSize="22" Text="Станция метро:" FontFamily="Candara Light"/>
+            <TextBlock x:Name="tb_Metro" Margin="5" FontSize="30" FontFamily="Candara"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <TextBlock Margin="5" FontSize="22" Text="Количество комнат:" FontFamily="Candara Light"/>
+            <TextBlock x:Name="tb_Room" Margin="5" FontSize="30" FontFamily="Candara"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <TextBlock Margin="5" FontSize="22" Text="Цена:" FontFamily="Candara Light"/>
+            <TextBlock x:Name="tb_Price" Margin="5" FontSize="30" FontFamily="Candara"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <TextBlock Margin="5" FontSize="22" Text="Площадь:" FontFamily="Candara Light"/>
+            <TextBlock x:Name="tb_Space" Margin="5" FontSize="30" FontFamily="Candara"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2">
+            <TextBlock FontSize="22" Margin="5" Text="Хозяин:" FontFamily="Candara Light" TextWrapping="Wrap"/>
+            <TextBlock x:Name="tb_User" Margin="5" FontSize="25" FontFamily="Candara" TextWrapping="Wrap"/>
+            <TextBlock x:Name="tb_Phone" Margin="5" FontSize="30" FontFamily="Candara"/>
+        </StackPanel>
+        <!--<TextBlock FontSize="25" Margin="5" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Фотографии квартиры" FontFamily="Candara Light" TextWrapping="Wrap"/>-->
+
+
+        <Button x:Name="Back" Content="Назад" FontSize="15" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" Width="300" Background="#FFC72929" Click="BackClick" Margin="10" BorderBrush="#FFC72929" Visibility="Visible"/>
+        
+        </Grid>
+</Page>

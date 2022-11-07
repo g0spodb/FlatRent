@@ -38,8 +38,7 @@ namespace FlatRent
         {
             var a = new User();
             a.FullName = tb_FullName.Text;
-            a.Passport = tb_Passport.Text;
-            a.Phone = tb_Passport.Text;
+            a.Phone = tb_Phone.Text;
             a.Login = tb_Login.Text;
             a.Password = pb_Password.Password;
             a.Id_Sex = i;

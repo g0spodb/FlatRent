@@ -26,24 +26,21 @@
         </Grid.RowDefinitions>
         <Image Source="img\logo.png"/>
         <Image x:Name="img_prod" Source="{Binding User.Photo}" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Margin="15" OpacityMask="Red"/>
-        <Label Grid.Column="2" Grid.Row="1">ФИО</Label>
-        <TextBlock Text="{Binding User.FullName}" Grid.Column="2" Grid.Row="1" x:Name="FullName" Width="300" TextWrapping="Wrap" FontSize="30" Height="90"/>
-        <TextBox Grid.Column="2" Grid.Row="1" x:Name="tbFullName" Width="300" TextWrapping="Wrap" FontSize="30" Height="90" Visibility="Hidden"/>
-        <Label Grid.Column="2" Grid.Row="2">Телефон</Label>
-        <TextBlock Text="{Binding User.Phone}"  Grid.Column="2" Width="300" Grid.Row="2" x:Name="Phone" FontSize="30" Height="60" />
-        <TextBox Grid.Column="2" Grid.Row="2" x:Name="tbPhone" Width="300" FontSize="30" Height="60" Visibility="Hidden"/>
-        <Label Grid.Column="2" Grid.Row="3">Серия и номер паспорта</Label>
-        <TextBlock Text="{Binding User.Passport}" Grid.Column="2" Width="300" Grid.Row="3" x:Name="Passport" FontSize="30" Height="60"/>
-        <TextBox Grid.Column="2" Grid.Row="3" x:Name="tbPassport" Width="300" FontSize="30" Height="60" Visibility="Hidden"/>
-        <Label Grid.Column="3" Grid.Row="1">Логин</Label>
-        <TextBlock Text="{Binding User.Login}" Grid.Column="3"  Grid.Row="1" x:Name="Login" FontSize="30" Height="60" Visibility="Hidden"/>
-        <TextBox Grid.Column="3" Grid.Row="1" x:Name="tbLogin" FontSize="30" Height="60" Visibility="Hidden"/>
-        <Label Grid.Column="3" Grid.Row="2">Пароль</Label>
-        <TextBlock Text="{Binding User.Password}" Grid.Column="3" Grid.Row="2" x:Name="Password" FontSize="30" Visibility="Hidden" Height="60"/>
-        <TextBox Grid.Column="3" Grid.Row="2" x:Name="tbPassword" FontSize="30" Height="60" Visibility="Hidden"/>
-        <Button x:Name="Show" Content="Показать логин и пароль" FontSize="15" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" Width="200" Height="70"  Background="#FFC72929" Click="ShowClick" Margin="10" BorderBrush="#FFC72929" Visibility="Visible"/>
-        <Button x:Name="Photo" Content="Добавить фото" FontSize="15" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="300" Background="#FFC72929" Click="PhotoClick" Margin="10" BorderBrush="#FFC72929" Visibility="Hidden"/>
-        <Button x:Name="Edit" Content="Редактировать" FontSize="15" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" Width="300" Background="#FFC72929" Click="EditClick" Margin="10" BorderBrush="#FFC72929" Visibility="Visible"/>
+        <Label Margin="5" Grid.Column="2" Grid.Row="1" FontFamily="Candara Light" FontSize="22">ФИО</Label>
+        <TextBlock Text="{Binding User.FullName}" Margin="0 30 0 0" Grid.Column="2" Grid.Row="1" x:Name="FullName" Width="300" TextWrapping="Wrap" FontSize="30" FontFamily="Candara" Height="90"/>
+        <TextBox Grid.Column="2" Grid.Row="1" x:Name="tbFullName" Width="300" TextWrapping="Wrap" FontSize="30" FontFamily="Candara" Height="70" Visibility="Hidden"/>
+        <Label Margin="5"   Grid.Column="2" Grid.Row="2" FontFamily="Candara Light" FontSize="22">Телефон</Label>
+        <TextBlock Text="{Binding User.Phone}"  Grid.Column="2" Width="300" Grid.Row="2" x:Name="Phone" FontSize="30" FontFamily="Candara" Height="60" />
+        <TextBox Grid.Column="2" Grid.Row="2" x:Name="tbPhone" Width="300" FontSize="30" FontFamily="Candara" Height="60" Visibility="Hidden"/>
+        <Label Grid.Column="3" Grid.Row="1" FontFamily="Candara Light" FontSize="22">Логин</Label>
+        <TextBlock Text="{Binding User.Login}" Grid.Column="3"  Grid.Row="1" x:Name="Login" FontSize="30" FontFamily="Candara" Height="60" Visibility="Hidden"/>
+        <TextBox Grid.Column="3" Grid.Row="1" x:Name="tbLogin" FontSize="30" FontFamily="Candara" Height="60" Visibility="Hidden"/>
+        <Label Grid.Column="3" Grid.Row="2" FontFamily="Candara Light" FontSize="22">Пароль</Label>
+        <TextBlock Text="{Binding User.Password}" Grid.Column="3" Grid.Row="2" x:Name="Password" FontSize="30" FontFamily="Candara" Visibility="Hidden" Height="60"/>
+        <TextBox Grid.Column="3" Grid.Row="2" x:Name="tbPassword" FontSize="30" FontFamily="Candara" Height="60" Visibility="Hidden"/>
+        <Button x:Name="Show" Content="Показать логин и пароль" FontSize="15" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Left" Width="200" Height="70"  Background="#FFC72929" Click="ShowClick" BorderBrush="#FFC72929" Visibility="Visible"/>
+        <Button x:Name="Photo" Content="Изменить фото" Height="100" FontSize="15" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Width="300" Background="#FFC72929" Click="PhotoClick" Margin="10" BorderBrush="#FFC72929" Visibility="Hidden"/>
+        <Button x:Name="Edit" Content="Редактировать" Height="100" FontSize="15" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" Width="300" Background="#FFC72929" Click="EditClick" Margin="10" BorderBrush="#FFC72929" Visibility="Visible"/>
         <Button x:Name="Back" Content="Назад" FontSize="15" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" Width="300" Background="#FFC72929" Click="BackClick" Margin="10" BorderBrush="#FFC72929" Visibility="Visible"/>
         <Button x:Name="Save" Content="Сохранить" FontSize="15" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" Width="300" Background="#FFC72929" Click="SaveClick" Margin="10" BorderBrush="#FFC72929" Visibility="Hidden"/>
     </Grid>

@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище FlatRentModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AddPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_Apartment" Type="int" Nullable="false" />
+          <Property Name="AdPhoto" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Apartment">
           <Key>
             <PropertyRef Name="Id" />
@@ -63,13 +71,24 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Id_Sex" Type="int" Nullable="false" />
-          <Property Name="Passport" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Id_Role" Type="int" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_AddPhoto_Apartment">
+          <End Role="Apartment" Type="Self.Apartment" Multiplicity="1" />
+          <End Role="AddPhoto" Type="Self.AddPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AddPhoto">
+              <PropertyRef Name="Id_Apartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Apartment_Metro">
           <End Role="Metro" Type="Self.Metro" Multiplicity="1" />
           <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
@@ -131,6 +150,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище FlatRentModelContainer">
+          <EntitySet Name="AddPhoto" EntityType="Self.AddPhoto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Apartment" EntityType="Self.Apartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Metro" EntityType="Self.Metro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
@@ -138,6 +158,10 @@
           <EntitySet Name="Sex" EntityType="Self.Sex" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AddPhoto_Apartment" Association="Self.FK_AddPhoto_Apartment">
+            <End Role="Apartment" EntitySet="Apartment" />
+            <End Role="AddPhoto" EntitySet="AddPhoto" />
+          </AssociationSet>
           <AssociationSet Name="FK_Apartment_Metro" Association="Self.FK_Apartment_Metro">
             <End Role="Metro" EntitySet="Metro" />
             <End Role="Apartment" EntitySet="Apartment" />
@@ -164,6 +188,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="FlatRentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="FlatRentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AddPhoto" EntityType="FlatRentModel.AddPhoto" />
           <EntitySet Name="Apartment" EntityType="FlatRentModel.Apartment" />
           <EntitySet Name="Metro" EntityType="FlatRentModel.Metro" />
           <EntitySet Name="Role" EntityType="FlatRentModel.Role" />
@@ -171,6 +196,10 @@
           <EntitySet Name="Sex" EntityType="FlatRentModel.Sex" />
           <EntitySet Name="sysdiagrams" EntityType="FlatRentModel.sysdiagrams" />
           <EntitySet Name="User" EntityType="FlatRentModel.User" />
+          <AssociationSet Name="FK_AddPhoto_Apartment" Association="FlatRentModel.FK_AddPhoto_Apartment">
+            <End Role="Apartment" EntitySet="Apartment" />
+            <End Role="AddPhoto" EntitySet="AddPhoto" />
+          </AssociationSet>
           <AssociationSet Name="FK_Apartment_Metro" Association="FlatRentModel.FK_Apartment_Metro">
             <End Role="Metro" EntitySet="Metro" />
             <End Role="Apartment" EntitySet="Apartment" />
@@ -192,6 +221,15 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AddPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_Apartment" Type="Int32" Nullable="false" />
+          <Property Name="AdPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Apartment" Relationship="FlatRentModel.FK_AddPhoto_Apartment" FromRole="AddPhoto" ToRole="Apartment" />
+        </EntityType>
         <EntityType Name="Apartment">
           <Key>
             <PropertyRef Name="Id" />
@@ -204,6 +242,7 @@
           <Property Name="LivingSpace" Type="Int32" Nullable="false" />
           <Property Name="Id_User" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="AddPhoto" Relationship="FlatRentModel.FK_AddPhoto_Apartment" FromRole="Apartment" ToRole="AddPhoto" />
           <NavigationProperty Name="Metro" Relationship="FlatRentModel.FK_Apartment_Metro" FromRole="Apartment" ToRole="Metro" />
           <NavigationProperty Name="User" Relationship="FlatRentModel.FK_Apartment_Owner" FromRole="Apartment" ToRole="User" />
           <NavigationProperty Name="Room" Relationship="FlatRentModel.FK_Apartment_Room" FromRole="Apartment" ToRole="Room" />
@@ -257,16 +296,27 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FullName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Id_Sex" Type="Int32" Nullable="false" />
-          <Property Name="Passport" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Id_Role" Type="Int32" Nullable="false" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Apartment" Relationship="FlatRentModel.FK_Apartment_Owner" FromRole="User" ToRole="Apartment" />
           <NavigationProperty Name="Role" Relationship="FlatRentModel.FK_User_Role" FromRole="User" ToRole="Role" />
           <NavigationProperty Name="Sex" Relationship="FlatRentModel.FK_Owner_Sex" FromRole="User" ToRole="Sex" />
         </EntityType>
+        <Association Name="FK_AddPhoto_Apartment">
+          <End Type="FlatRentModel.Apartment" Role="Apartment" Multiplicity="1" />
+          <End Type="FlatRentModel.AddPhoto" Role="AddPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AddPhoto">
+              <PropertyRef Name="Id_Apartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Apartment_Metro">
           <End Type="FlatRentModel.Metro" Role="Metro" Multiplicity="1" />
           <End Type="FlatRentModel.Apartment" Role="Apartment" Multiplicity="*" />
@@ -333,6 +383,15 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище FlatRentModelContainer" CdmEntityContainer="FlatRentEntities">
+          <EntitySetMapping Name="AddPhoto">
+            <EntityTypeMapping TypeName="FlatRentModel.AddPhoto">
+              <MappingFragment StoreEntitySet="AddPhoto">
+                <ScalarProperty Name="AdPhoto" ColumnName="AdPhoto" />
+                <ScalarProperty Name="Id_Apartment" ColumnName="Id_Apartment" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Apartment">
             <EntityTypeMapping TypeName="FlatRentModel.Apartment">
               <MappingFragment StoreEntitySet="Apartment">
@@ -393,12 +452,11 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="FlatRentModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="Id_Sex" ColumnName="Id_Sex" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

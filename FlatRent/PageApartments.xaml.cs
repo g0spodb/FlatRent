@@ -43,7 +43,13 @@ namespace FlatRent
 
         private void LViewAparts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var n = (sender as ListView).SelectedItem as Apartment;
+            NavigationService.Navigate(new PageApartment(n));
+        }
 
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAutho());
         }
     }
 }
